@@ -3,23 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { AppContextForDisplayMode } from "@src/App";
 import { useContext } from "react";
+import {
+  darkModeContainerColor,
+  darkModeFontColor,
+  lightModeContainerColor,
+  lightModeFontColor,
+} from "@src/styles/Theme";
 
 const ButtonWrapper = styled.button`
-  background-color: #0a0a0a;
   z-index: 100;
   position: absolute;
   border-radius: 50px;
   height: 50px;
   width: 80px;
   overflow: hidden;
-  right: 20px;
-  top: 20px;
+  right: 50px;
+  top: 55px;
   border: none;
   position: fixed;
   cursor: pointer;
 `;
 const ButtonToggle = styled.div`
-  background-color: rgb(240, 240, 240);
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -29,7 +33,6 @@ const ButtonToggle = styled.div`
 const StyledIcon = styled(FontAwesomeIcon)`
   font-size: 30px;
   margin-top: 5px;
-  color: #0a0a0a;
 `;
 
 const ToggleDisplayMode = () => {
@@ -38,11 +41,32 @@ const ToggleDisplayMode = () => {
   );
 
   return (
-    <ButtonWrapper onClick={changeDisplayMode}>
+    <ButtonWrapper
+      onClick={changeDisplayMode}
+      style={{
+        backgroundColor:
+          displayMode === "dark"
+            ? darkModeContainerColor
+            : lightModeContainerColor,
+      }}
+    >
       <ButtonToggle
-        style={{ left: displayMode === "light" ? "5px" : "35px", top: "5px" }}
+        style={{
+          left: displayMode === "light" ? "5px" : "35px",
+          top: "5px",
+          backgroundColor:
+            displayMode === "dark"
+              ? darkModeContainerColor
+              : lightModeContainerColor,
+        }}
       >
-        <StyledIcon icon={displayMode === "dark" ? faMoon : faSun} />
+        <StyledIcon
+          icon={displayMode === "dark" ? faMoon : faSun}
+          style={{
+            color:
+              displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          }}
+        />
       </ButtonToggle>
     </ButtonWrapper>
   );
