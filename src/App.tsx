@@ -8,7 +8,7 @@ export const AppContextForDisplayMode = createContext<{
 }>({ displayMode: "dark", changeDisplayMode: () => {} });
 
 function App() {
-  const [displayMode, setDisplayMode] = useState<"dark" | "light">("dark");
+  const [displayMode, setDisplayMode] = useState<"dark" | "light">("light");
   const changeDisplayMode = () => {
     displayMode === "dark" ? setDisplayMode("light") : setDisplayMode("dark");
   };

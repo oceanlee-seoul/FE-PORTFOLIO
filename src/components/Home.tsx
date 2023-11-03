@@ -1,8 +1,9 @@
 import { AppContextForDisplayMode } from "@src/App";
 import { useContext } from "react";
-import Memoji from "@assets/memoji.png";
-import ToggleDisplayMode from "@components/ToggleDisplayMode";
 import Styles from "@styles/Home.module.scss";
+import { TypeAnimation } from "react-type-animation";
+import ToggleDisplayMode from "@components/ToggleDisplayMode";
+import ProfileCard from "@components/ProfileCard";
 
 const Home = () => {
   const { displayMode } = useContext(AppContextForDisplayMode);
@@ -43,13 +44,19 @@ const Home = () => {
               : Styles.contentContainerLight
           }
         >
-          <div className={Styles.textBox}>
-            <h1>안녕하세요,</h1>
-            <h1>프론트엔드 개발자</h1>
-            <h1>이대양입니다.</h1>
-          </div>
           <div className={Styles.imageBox}>
-            <img src={Memoji}></img>
+            <ProfileCard text={"Lee Daeyang"} />
+          </div>
+          <div className={Styles.textBox}>
+            <TypeAnimation
+              sequence={[
+                `안녕하세요,\n웹 프론트엔드 개발자\n이대양 입니다.\n\n방문해 주셔서\n감사합니다.`,
+              ]}
+              wrapper="span"
+              style={{ whiteSpace: "pre-line", fontSize: "4.5rem" }}
+              speed={10}
+              deletionSpeed={1}
+            />
           </div>
         </div>
       </div>

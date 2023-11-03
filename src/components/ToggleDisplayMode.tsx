@@ -40,7 +40,7 @@ const ToggleDisplayMode = () => {
   return (
     <ButtonWrapper onClick={changeDisplayMode}>
       <ButtonToggle
-        style={{ left: displayMode === "dark" ? "5px" : "35px", top: "5px" }}
+        style={{ left: displayMode === "light" ? "5px" : "35px", top: "5px" }}
       >
         <StyledIcon icon={displayMode === "dark" ? faMoon : faSun} />
       </ButtonToggle>
