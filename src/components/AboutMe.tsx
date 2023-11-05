@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { forwardRef } from "react";
 
 const AboutMeContainer = styled.div`
   position: relative;
@@ -17,12 +18,12 @@ const TestText = styled.h1`
   transform: translate(-50%, -50%);
 `;
 
-const AboutMe = () => {
+const AboutMe = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <AboutMeContainer>
+    <AboutMeContainer ref={ref}>
       <TestText>This is AboutMe</TestText>
     </AboutMeContainer>
   );
-};
+});
 
 export default AboutMe;

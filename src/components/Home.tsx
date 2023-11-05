@@ -1,16 +1,14 @@
 import { AppContextForDisplayMode } from "@src/App";
-import { useContext } from "react";
+import { useContext, forwardRef } from "react";
 import Styles from "@styles/Home.module.scss";
 import { TypeAnimation } from "react-type-animation";
-import ToggleDisplayMode from "@components/ToggleDisplayMode";
 import ProfileCard from "@components/ProfileCard";
 
-const Home = () => {
+const Home = forwardRef<HTMLDivElement>((props, ref) => {
   const { displayMode } = useContext(AppContextForDisplayMode);
 
   return (
-    <div className={Styles.Home}>
-      <ToggleDisplayMode />
+    <div className={Styles.Home} ref={ref}>
       <div className={Styles.gradientBg}>
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -62,6 +60,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Home;

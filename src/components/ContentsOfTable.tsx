@@ -1,11 +1,12 @@
 import { AppContextForDisplayMode } from "@src/App";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import styled from "styled-components";
-import {
-  darkModeFontColor,
-  lightModeFontColor,
-  colorSelector,
-} from "@src/styles/Theme";
+import { colorSelector } from "@src/styles/Theme";
+
+import Home from "@components/Home";
+import AboutMe from "@components/AboutMe";
+import Skills from "@components/Skills";
+import Projects from "@components/Projects";
 
 const COTWrapper = styled.div`
   position: absolute;
@@ -31,42 +32,69 @@ const COTItems = styled.button`
 
 const ContentsOfTable = () => {
   const { displayMode } = useContext(AppContextForDisplayMode);
-  const handleScrollToTop = () => {
-    // Scroll to the top of the page (or target element)
-    window.scrollTo({
-      top: 664,
-      behavior: "smooth", // You can use 'auto' for instant scroll or 'smooth' for smooth scroll
-    });
+
+  const homeRef = useRef<HTMLDivElement>(null);
+  const aboutMeRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToHome = () => {
+    if (homeRef.current) {
+      homeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
+
+  const scrollToAboutMe = () => {
+    if (aboutMeRef.current) {
+      aboutMeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToSkills = () => {
+    if (skillsRef.current) {
+      skillsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToProjects = () => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <COTWrapper>
-      <COTItems
-        style={{
-          backgroundColor: colorSelector(displayMode, "font"),
-        }}
-      />
-      <COTItems
-        style={{
-          backgroundColor: colorSelector(displayMode, "font"),
-        }}
-        onClick={handleScrollToTop}
-      />
-      <COTItems
-        style={{
-          backgroundColor: colorSelector(displayMode, "font"),
-        }}
-      />
-      <COTItems
-        style={{
-          backgroundColor: colorSelector(displayMode, "font"),
-        }}
-      />
-      <COTItems
-        style={{
-          backgroundColor: colorSelector(displayMode, "font"),
-        }}
-      />
-    </COTWrapper>
+    <div>
+      <COTWrapper>
+        <COTItems
+          style={{
+            backgroundColor: colorSelector(displayMode, "font"),
+          }}
+          onClick={scrollToHome}
+        />
+        <COTItems
+          style={{
+            backgroundColor: colorSelector(displayMode, "font"),
+          }}
+          onClick={scrollToAboutMe}
+        />
+        <COTItems
+          style={{
+            backgroundColor: colorSelector(displayMode, "font"),
+          }}
+          onClick={scrollToSkills}
+        />
+        <COTItems
+          style={{
+            backgroundColor: colorSelector(displayMode, "font"),
+          }}
+          onClick={scrollToProjects}
+        />
+      </COTWrapper>
+      <Home ref={homeRef} />
+      <AboutMe ref={aboutMeRef} />
+      <Skills ref={skillsRef} />
+      <Projects ref={projectsRef} />
+    </div>
   );
 };
 
