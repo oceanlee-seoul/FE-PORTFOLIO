@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const AboutMeContainer = styled.div`
-  position: absolute;
+  position: relative;
   width: 100vw;
-  height: 200vh;
+  height: 100vh;
   background-color: black;
   z-index: 5;
 `;
@@ -12,7 +12,9 @@ const TestText = styled.h1`
   color: white;
   font-size: 5rem;
   position: absolute;
-  top: 150vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const AboutMe = () => {

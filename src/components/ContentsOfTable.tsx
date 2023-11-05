@@ -1,7 +1,11 @@
 import { AppContextForDisplayMode } from "@src/App";
 import { useContext } from "react";
 import styled from "styled-components";
-import { darkModeFontColor, lightModeFontColor } from "@src/styles/Theme";
+import {
+  darkModeFontColor,
+  lightModeFontColor,
+  colorSelector,
+} from "@src/styles/Theme";
 
 const COTWrapper = styled.div`
   position: absolute;
@@ -38,33 +42,28 @@ const ContentsOfTable = () => {
     <COTWrapper>
       <COTItems
         style={{
-          backgroundColor:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          backgroundColor: colorSelector(displayMode, "font"),
         }}
       />
       <COTItems
         style={{
-          backgroundColor:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          backgroundColor: colorSelector(displayMode, "font"),
         }}
         onClick={handleScrollToTop}
       />
       <COTItems
         style={{
-          backgroundColor:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          backgroundColor: colorSelector(displayMode, "font"),
         }}
       />
       <COTItems
         style={{
-          backgroundColor:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          backgroundColor: colorSelector(displayMode, "font"),
         }}
       />
       <COTItems
         style={{
-          backgroundColor:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          backgroundColor: colorSelector(displayMode, "font"),
         }}
       />
     </COTWrapper>

@@ -6,10 +6,9 @@ import { faGithub, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import {
-  darkModeFontColor,
-  lightModeFontColor,
-  darkModeContainerColor,
-  lightModeContainerColor,
+  darkModeBoxShadow,
+  lightModeBoxShadow,
+  colorSelector,
 } from "@src/styles/Theme";
 
 type TProfileCard = {
@@ -67,29 +66,21 @@ const ProfileCard = ({ text }: TProfileCard) => {
   return (
     <ProfileWrapper
       style={{
-        backgroundColor:
-          displayMode === "dark"
-            ? darkModeContainerColor
-            : lightModeContainerColor,
+        backgroundColor: colorSelector(displayMode, "container"),
         boxShadow:
-          displayMode === "dark"
-            ? "rgba(121, 121, 121, 0.096) 0px 10px 10px 0px"
-            : "rgba(99, 99, 99, 0.085)  0px 10px 10px 0px",
+          displayMode === "dark" ? darkModeBoxShadow : lightModeBoxShadow,
       }}
     >
       <ProfileImage
         src={Memoji}
         style={{
           boxShadow:
-            displayMode === "dark"
-              ? "rgba(121, 121, 121, 0.096) 0px 10px 10px 0px"
-              : "rgba(99, 99, 99, 0.085)  0px 10px 10px 0px",
+            displayMode === "dark" ? darkModeBoxShadow : lightModeBoxShadow,
         }}
       />
       <h1
         style={{
-          color:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          color: colorSelector(displayMode, "font"),
           marginTop: "190px",
           fontSize: "2rem",
         }}
@@ -98,32 +89,28 @@ const ProfileCard = ({ text }: TProfileCard) => {
       </h1>
       <ProfileBar
         style={{
-          backgroundColor:
-            displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+          backgroundColor: colorSelector(displayMode, "font"),
         }}
       />
       <ProfileLinksContainer>
         <StyledIcon
           style={{
             display: "block",
-            color:
-              displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+            color: colorSelector(displayMode, "font"),
           }}
           icon={faGithub}
         />
         <StyledIcon
           style={{
             display: "block",
-            color:
-              displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+            color: colorSelector(displayMode, "font"),
           }}
           icon={faBook}
         />
         <StyledIcon
           style={{
             display: "block",
-            color:
-              displayMode === "dark" ? darkModeFontColor : lightModeFontColor,
+            color: colorSelector(displayMode, "font"),
           }}
           icon={faInstagram}
         />

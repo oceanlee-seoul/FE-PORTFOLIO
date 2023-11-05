@@ -9,7 +9,7 @@ const Home = () => {
   const { displayMode } = useContext(AppContextForDisplayMode);
 
   return (
-    <div>
+    <div className={Styles.Home}>
       <ToggleDisplayMode />
       <div className={Styles.gradientBg}>
         <svg xmlns="http://www.w3.org/2000/svg">
