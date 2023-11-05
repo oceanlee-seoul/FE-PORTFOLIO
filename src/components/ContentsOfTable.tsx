@@ -11,23 +11,50 @@ import Projects from "@components/Projects";
 const COTWrapper = styled.div`
   position: absolute;
   z-index: 300;
-  width: 600px;
-  height: 100px;
+  width: 950px;
+  height: 60px;
   display: flex;
   flex-direction: row;
-  top: 30px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   justify-content: space-around;
   align-items: center;
   position: fixed;
+  border-radius: 100px;
+  transition: 0.3s;
+`;
+const COTItemsContainer = styled.div`
+  flex: 1;
+  text-align: center;
 `;
 const COTItems = styled.button`
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 600;
+  }
+  &:hover {
+    width: 70px;
+    border-radius: 25px;
+
+    &::before {
+      opacity: 1;
+    }
+  }
 `;
 
 const ContentsOfTable = () => {
@@ -64,31 +91,51 @@ const ContentsOfTable = () => {
 
   return (
     <div>
-      <COTWrapper>
-        <COTItems
-          style={{
-            backgroundColor: colorSelector(displayMode, "font"),
-          }}
-          onClick={scrollToHome}
-        />
-        <COTItems
-          style={{
-            backgroundColor: colorSelector(displayMode, "font"),
-          }}
-          onClick={scrollToAboutMe}
-        />
-        <COTItems
-          style={{
-            backgroundColor: colorSelector(displayMode, "font"),
-          }}
-          onClick={scrollToSkills}
-        />
-        <COTItems
-          style={{
-            backgroundColor: colorSelector(displayMode, "font"),
-          }}
-          onClick={scrollToProjects}
-        />
+      <COTWrapper
+      // style={{ backgroundColor: colorSelector(displayMode, "container") }}
+      >
+        <COTItemsContainer>
+          <COTItems
+            style={{
+              backgroundColor: colorSelector(displayMode, "container"),
+              color: colorSelector(displayMode, "font"),
+            }}
+            onClick={scrollToHome}
+            data-text={"HOME"}
+          ></COTItems>
+        </COTItemsContainer>
+        <COTItemsContainer>
+          <COTItems
+            style={{
+              backgroundColor: colorSelector(displayMode, "container"),
+              color: colorSelector(displayMode, "font"),
+            }}
+            onClick={scrollToAboutMe}
+            data-text={"ABOUT"}
+          >
+            {" "}
+          </COTItems>
+        </COTItemsContainer>
+        <COTItemsContainer>
+          <COTItems
+            style={{
+              backgroundColor: colorSelector(displayMode, "container"),
+              color: colorSelector(displayMode, "font"),
+            }}
+            onClick={scrollToSkills}
+            data-text={"SKILLS"}
+          ></COTItems>
+        </COTItemsContainer>
+        <COTItemsContainer>
+          <COTItems
+            style={{
+              backgroundColor: colorSelector(displayMode, "container"),
+              color: colorSelector(displayMode, "font"),
+            }}
+            onClick={scrollToProjects}
+            data-text={"PROJECTS"}
+          ></COTItems>
+        </COTItemsContainer>
       </COTWrapper>
       <Home ref={homeRef} />
       <AboutMe ref={aboutMeRef} />

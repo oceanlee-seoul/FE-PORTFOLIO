@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 const ProjectContainer = styled.div`
   position: relative;
@@ -26,4 +26,4 @@ const Projects = forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
-export default Projects;
+export default React.memo(Projects);

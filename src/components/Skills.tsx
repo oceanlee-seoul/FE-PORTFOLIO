@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 const SkillsContainer = styled.div`
   position: relative;
@@ -26,4 +26,4 @@ const Skills = forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
-export default Skills;
+export default React.memo(Skills);

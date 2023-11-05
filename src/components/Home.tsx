@@ -1,5 +1,5 @@
 import { AppContextForDisplayMode } from "@src/App";
-import { useContext, forwardRef } from "react";
+import React, { useContext, forwardRef } from "react";
 import Styles from "@styles/Home.module.scss";
 import { TypeAnimation } from "react-type-animation";
 import ProfileCard from "@components/ProfileCard";
@@ -62,4 +62,4 @@ const Home = forwardRef<HTMLDivElement>((props, ref) => {
   );
 });
 
-export default Home;
+export default React.memo(Home);
