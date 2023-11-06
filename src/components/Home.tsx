@@ -42,13 +42,24 @@ const Home = forwardRef<HTMLDivElement>((props, ref) => {
               : Styles.contentContainerLight
           }
         >
+          <div
+            className={
+              displayMode === "dark" ? Styles.headerDark : Styles.headerLight
+            }
+          >
+            <div className={Styles.spanWrapper}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
           <div className={Styles.imageBox}>
             <ProfileCard text={"Lee Daeyang"} />
           </div>
           <div className={Styles.textBox}>
             <TypeAnimation
               sequence={[
-                `안녕하세요,\n웹 프론트엔드 개발자\n이대양 입니다.\n\n방문해 주셔서\n감사합니다. :)`,
+                `안녕하세요,\n웹 프론트엔드 개발자\n이대양 입니다.\n\n방문해 주셔서\n감사합니다. ;)`,
               ]}
               wrapper="span"
               style={{ whiteSpace: "pre-line", fontSize: "4.5rem" }}

@@ -18,7 +18,7 @@ const ButtonWrapper = styled.button`
   width: 80px;
   overflow: hidden;
   right: 50px;
-  top: 55px;
+  top: 30px;
   border: none;
   position: fixed;
   cursor: pointer;

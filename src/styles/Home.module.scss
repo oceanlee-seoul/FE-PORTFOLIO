@@ -22,13 +22,72 @@ $blending: hard-light;
   border-radius: 10px;
   z-index: 100;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 20px);
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(calc(-50% + 20px), -50%);
   color: $fontColor;
   transition: 0.3s;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  .headerDark {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background-color: rgb(58, 56, 62);
+    width: calc(100% - 20px);
+    padding: 10px;
+    .spanWrapper {
+      display: flex;
+      gap: 10px;
+      span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: white;
+        border: 0.5px solid rgba(128, 128, 128, 0.467);
+        &:first-child {
+          background-color: rgb(237, 106, 94);
+        }
+        &:nth-child(2) {
+          background-color: rgb(245, 191, 79);
+        }
+        &:last-child {
+          background-color: rgb(97, 197, 84);
+        }
+      }
+    }
+  }
+  .headerLight {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background-color: rgb(250, 243, 241);
+    width: calc(100% - 20px);
+    padding: 10px;
+    transition: 0.3s;
+    .spanWrapper {
+      display: flex;
+      gap: 10px;
+      span {
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: white;
+        border: 0.5px solid rgba(128, 128, 128, 0.467);
+        &:first-child {
+          background-color: rgb(237, 106, 94);
+        }
+        &:nth-child(2) {
+          background-color: rgb(245, 191, 79);
+        }
+        &:last-child {
+          background-color: rgb(97, 197, 84);
+        }
+      }
+    }
+  }
   .textBox {
     width: 50%;
     line-height: 4.5rem;

@@ -15,7 +15,7 @@ const COTWrapper = styled.div`
   height: 60px;
   display: flex;
   flex-direction: row;
-  top: 60px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
   justify-content: space-around;
