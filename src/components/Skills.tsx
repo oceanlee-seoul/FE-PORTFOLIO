@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 
 const SkillsContainer = styled.div`
   position: relative;
@@ -7,6 +7,7 @@ const SkillsContainer = styled.div`
   height: 100vh;
   background-color: black;
   z-index: 5;
+  border-top: 1px solid white;
 `;
 
 const TestText = styled.h1`
@@ -19,6 +20,10 @@ const TestText = styled.h1`
 `;
 
 const Skills = forwardRef<HTMLDivElement>((props, ref) => {
+  useEffect(() => {
+    console.log(props);
+  }, []);
+
   return (
     <SkillsContainer ref={ref}>
       <TestText>This is Skills</TestText>

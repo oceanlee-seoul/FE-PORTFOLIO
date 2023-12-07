@@ -1,10 +1,13 @@
 import { AppContextForDisplayMode } from "@src/App";
-import React, { useContext, forwardRef } from "react";
+import React, { useContext, forwardRef, useEffect } from "react";
 import Styles from "@styles/Home.module.scss";
 import { TypeAnimation } from "react-type-animation";
 import ProfileCard from "@components/ProfileCard";
 
 const Home = forwardRef<HTMLDivElement>((props, ref) => {
+  useEffect(() => {
+    console.log(props);
+  }, []);
   const { displayMode } = useContext(AppContextForDisplayMode);
 
   return (

@@ -24,7 +24,7 @@ $blending: hard-light;
   position: absolute;
   top: calc(50% + 20px);
   left: 50%;
-  transform: translate(calc(-50% + 20px), -50%);
+  transform: translate(-50%, calc(-50% + 20px));
   color: $fontColor;
   transition: 0.3s;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
